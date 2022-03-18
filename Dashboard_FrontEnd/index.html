@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard </title>
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="description" content="Gradient Able Bootstrap admin template made using Bootstrap 4. The starter version of Gradient Able is completely free for personal project." />
+      <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+      <meta name="author" content="codedthemes">
+      <link rel="stylesheet" href="assets/css/agrandar.css">
+      <!-- Favicon icon -->
+      <link rel="icon" href="https://image.shutterstock.com/z/stock-vector-dashboard-icon-vector-isolated-on-white-background-for-your-web-and-mobile-app-design-dashboard-1149162104.jpg" type="image/x-icon">
+      <!-- Google font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+	  <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    </head>
+
+  <body>
+  <body>
+       <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+            <nav class="navbar header-navbar pcoded-header">  
+               
+                    
+                    <div class="d-flex">
+                        <div class="mr-auto p-2">
+                            <h4 style="color: white;">Dashboard Marcas-Productos</h4>
+                        </div>
+                        <div class="p-2">
+                            <button style="background-color: rgb(42, 212, 0);" type="button" class="btn btn-success " id="altaMarca" onclick="AltaMarca()"><i class="fas fa-plus"></i> Marca</button>
+                        </div>
+                        <div class="p-2">
+                            <button style="background-color: rgb(42, 212, 0);" type="button" class="btn btn-success " onclick="AltaProducto()" ><i class="fas fa-plus"></i> Producto</button>
+                        </div>
+                      </div>
+
+                    
+
+                    <!-- <button style="margin-right: 50px; background-color: rgb(42, 212, 0);" type="button" class="btn btn-success " id="altaMarca" onclick="AltaMarca()"><i class="fas fa-plus"></i> Marca</button>
+                     -->
+              
+                   
+           </nav>
+           
+            <div class="pcoded-main-container">
+                
+                <div class="pcoded-wrapper">
+                    <div >
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+
+                                    <div class="page-body">
+                                      <div class="row">
+                                            <!-- order-card start -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card bg-c-blue order-card" id="cardTotalProd">
+                                                    <div class="card-block">
+                                                        <h6 class="m-b-20">Total de productos</h6>
+                                                        <h2 class="text-right"><i class="ti-shopping-cart f-left"></i><span id="totalProductos"></span></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card bg-c-green order-card">
+                                                    <div class="card-block">
+                                                        <h6 class="m-b-20">Total de marcas</h6>
+                                                        <h2 class="text-right"><i class="ti-tag f-left"></i><span id="totalMarcas"></span></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card bg-c-yellow order-card">
+                                                    <div class="card-block">
+                                                        <h6 class="m-b-20">Sumatoria de precios de productos</h6>
+                                                        <h2 class="text-right"><i class="far fa-dollar-sign f-left"></i><span id="sumPrecios"></span></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-xl-3">
+                                                <div class="card bg-c-pink order-card">
+                                                    <div class="card-block">
+                                                        <h6 class="m-b-20">El producto mas caro</h6>
+                                                        <p class="text-right"><i class="fas fa-star f-left"></i><span id="masCaro"></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- order-card end -->
+
+                                            <!-- statustic and process start -->
+                                            <div class="col-lg-8 col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Productos</h5>
+                                             
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="table-responsive" >
+                                                            <table class="table" id="tablaTodosProductos" style="width: 100%;">
+                                                            <thead>
+                                                                <tr>                                                             
+                                                                    <th style="text-align: center;">Producto</th>
+                                                                    <th style="text-align: center;">Marca</th>
+                                                                    <th style="text-align: center;">Precio</th>         
+                                                                    <th style="text-align: center;">Stock</th>                                                                      
+                                                                </tr>
+                                                            </thead>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Porcentaje de Stock de Productos</h5>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <span class="d-block text-c-blue f-24 f-w-600 text-center">
+                                                            <div class="form-group">
+                                                                <label for="comboMarcasPorcentaje">Marcas</label>
+                                                                <select style="width: 100%;" class="btn btn-primary" id="comboMarcasPorcentaje"></select>
+                                                              </div>
+                                                            <div class="form-group">
+                                                                <label for="comboProductos">Productos</label>
+                                                                <select style="width: 100%;" class="btn btn-primary" id="comboProductos"></select>
+                                                              </div>
+                                                        </span>
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <h1 id="porcentaje" style="color:rgb(128, 0, 85)"></h1>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center m-t-15">
+                                                            <div class="col-auto b-r-default m-t-5 m-b-5">
+                                                                <h4 id="stockTotal" class="text-center"></h4>
+                                                                <p class="text-success m-b-0"><i class="ti-hand-point-up m-r-5"></i>Stock Total</p>
+                                                            </div>
+                                                            <div class="col-auto m-t-5 m-b-5">
+                                                                <h4 id="stockProducto" class="text-center"></h4>
+                                                                <p class="text-danger m-b-0"><i class="ti-hand-point-up m-r-5"></i>Stock Producto</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- statustic and process end -->
+											<!-- tabs card start -->
+                                            
+                                            <div class="col-lg-4 col-md-12">
+                                                <div class="card tabs-card">
+                                                    <div class="card-header">
+                                                        <h5>Marcas</h5>
+                                             
+                                                    </div>
+                                                    <div class="card-block p-0">
+
+                                                        <div class="tab-content card-block">
+                                                            <div class="tab-pane active" id="home3" role="tabpanel">
+
+                                                                <div class="table-responsive" >
+                                                                    <table class="table" id="tablaMarcas" style="width: 100%;">
+                                                                    <thead>
+                                                                        <tr>                                                             
+                                                                            <th style="text-align: center;">Nombre marca</th>
+                                                                            <th style="text-align: center;">Ver</th>
+                                                                            <th style="text-align: center;">Editar</th>
+                                                                            <th style="text-align: center;">Borrar</th>                                                                           
+                                                                        </tr>
+                                                                    </thead>
+                                                                    </table>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-12">
+                                                <div class="card tabs-card">
+                                                    <div class="card-header">
+                                                        <h5>Productos por Marca</h5>
+                                             
+                                                    </div>
+                                                    <div class="card-block p-0">
+                                                        <div class="tab-content card-block">
+                                                            <div class="tab-pane active" id="home3" role="tabpanel">
+
+                                                                <div class="table-responsive" >
+                                                                    <table class="table" id="tablaProductos" style="width: 100%;">
+                                                                        <thead >
+                                                                        <tr>                                                             
+                                                                            <th style="text-align: center;">Nombre Producto</th>
+                                                                            <th style="text-align: center;">Precio</th>
+                                                                            <th style="text-align: center;">Stock</th>
+                                                                            <th style="text-align: center;">Peso(gr)</th>
+                                                                            <th style="text-align: center;">Presentacion</th>
+                                                                            <th style="text-align: center;">Fecha Elaboracion</th>
+                                                                            <th style="text-align: center;">Fecha Vencimiento</th>                             
+                                                                                                                                              
+                                                                        </tr>
+                                                                        </thead>
+                                                                    </table>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                      
+                                            
+
+                                        </div>
+                                    </div>
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- DIV_ALTA MARCA-->
+
+<div class="modal" tabindex="-1" id="modalAltaMarca">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alta Marcas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="Alerta"class="card text-white bg-danger mb-3" style="width: 100%;">
+                <div id="MensajeError"class="card-header"></div>
+            </div>
+            <div class="form-group">
+                <label for="txtNombreMarca">Nombre Marca</label>
+                <input type="text" class="form-control" id="txtNombreMarca">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnInsertarMarca">Insertar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<!-- DIV_EDITAR MARCA-->
+
+<div class="modal" tabindex="-1" id="modalEditarMarca">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Marca</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="AlertaE"class="card text-white bg-danger mb-3" style="width: 100%;">
+                <div id="MensajeErrorE"class="card-header"></div>
+            </div>
+            <div class="form-group">
+                <label for="txtNombreMarcaE">Nombre Marca</label>
+                <input type="text" class="form-control" id="txtNombreMarcaE">
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnGrabarMarca">Grabar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIV ALTA PRODUCTOS -->
+  <div class="modal" tabindex="-1" id="modalAltaProducto">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alta Productos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+        </div>
+        <div class="modal-body">  
+            
+            <div class="form-group">
+                <label for="txtNombreProducto">Nombre Producto</label>
+                <input type="text" class="form-control" id="txtNombreProducto">
+            </div>
+              <div class="form-group">
+                <label for="comboMarcas">Marcas</label>
+                <select style="width: 100%;" class="btn btn-primary" id="comboMarcas"></select>
+              </div>
+              <div class="form-group">
+                <label for="txtStock">Stock</label>
+                <input type="number" class="form-control" id="txtStock">
+            </div>
+            <div class="form-group">
+                <label for="txtPrecio">Precio</label>
+                <input type="number" class="form-control" id="txtPrecio">
+            </div>
+            <div class="form-group">
+                <label for="txtPeso">Peso(gr)</label>
+                <input type="number" class="form-control" id="txtPeso">
+            </div>
+            <div class="form-group">
+                <label for="txtPresentacion">Presentacion</label>
+                <input type="text" class="form-control" id="txtPresentacion">
+            </div>
+            <div class="form-group">
+                <label for="txtfechaElaboracion">Fecha Elaboracion</label>
+                <input type="date" class="form-control" id="txtfechaElaboracion">
+            </div>
+          
+            <div class="form-group">
+                <label for="txtFechaVencimiento">Fecha Vencimiento</label>
+                <input type="date" class="form-control" id="txtFechaVencimiento">
+            </div>
+            <div id="AlertaProd"class="card text-white bg-danger mb-3" style="width: 100%;">
+                <div id="MensajeErrorProd"class="card-header"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btnInsertarProducto">Insertar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/Tablas.js"></script>
+<script src="assets/Altas.js"></script>
+<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+
+
+<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+<!-- am chart -->
+<script src="assets/pages/widget/amchart/amcharts.min.js"></script>
+<script src="assets/pages/widget/amchart/serial.min.js"></script>
+<!-- Chart js -->
+<script type="text/javascript" src="assets/js/chart.js/Chart.js"></script>
+<!-- Todo js -->
+<script type="text/javascript " src="assets/pages/todo/todo.js "></script>
+<!-- Custom js -->
+<script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+<script type="text/javascript " src="assets/js/SmoothScroll.js"></script>
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/vartical-demo.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+<script type="module" src="js/articulo.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.5/js/responsive.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>
